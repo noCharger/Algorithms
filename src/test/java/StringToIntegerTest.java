@@ -24,6 +24,7 @@ public class StringToIntegerTest {
         return JsonArray.readFrom("[" + input + "]").get(0).asString();
     }
 
+    @org.junit.Test
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
