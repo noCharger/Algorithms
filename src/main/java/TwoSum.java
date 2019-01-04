@@ -7,7 +7,7 @@ import java.util.Map;
  * @since 2018-11-02
  *
  * Tags: math
- * Note: very important
+ * Note: very important 1. unique number 2. unsorted
  * level: easy
  * Time cost: O(n)
  * Space cost: O(n)
