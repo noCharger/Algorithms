@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 /**
  * @author Lingzhi Chu
  * @version 1.0.0
@@ -14,20 +16,23 @@ import java.util.List;
  * Further related: 1. how to prove runtime 2. if input has duplicates
  */
 
-public class Subsets {
-    public List<List<Integer>> subsets(int[] nums) {
+
+public class SubsetsII {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        //remove duplication: sort
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return res;
+        Arrays.sort(nums);
         helper(nums,0,res,new ArrayList<>());
         return res;
     }
 
-    void helper(int[] nums, int start, List<List<Integer>> res, List<Integer> tempList) {
+    void helper(int[] nums, int index, List<List<Integer>> res, List<Integer> tempList) {
         res.add(new ArrayList<Integer>(tempList));
-        for (int i = start; i<nums.length; i++) {
+        for (int i = index; i < nums.length; i++) {
+            if (i!=index && nums[i] == nums[i-1]) continue;
             tempList.add(nums[i]);
-            start += 1;
-            helper(nums, start, res, tempList);
+            helper(nums, i+1, res, tempList);
             tempList.remove(tempList.size()-1);
         }
     }
