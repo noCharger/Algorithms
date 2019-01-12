@@ -42,6 +42,7 @@ public class RemoveNthNodeFromEndOfList {
                 slow = slow.next;
                 fast = fast.next;
             }
+            //remove
             slow.next = slow.next.next;
             return start.next;
         }
